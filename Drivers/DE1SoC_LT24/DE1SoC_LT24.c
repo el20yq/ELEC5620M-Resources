@@ -197,7 +197,7 @@ signed int LT24_initialise( unsigned int pio_base_address, unsigned int pio_hw_b
     lt24_initialised = true;
     
     //And clear the display
-    return LT24_clearDisplay(LT24_BLACK);
+    return LT24_clearDisplay(LT24_BLACK,0,0,240,320);
 }
 
 //Check if driver initialised
@@ -271,17 +271,17 @@ void LT24_powerConfig( bool isOn )
 
 //Function to clear display to a set colour
 // - Returns true if successful
-signed int LT24_clearDisplay(unsigned short colour)
+signed int LT24_clearDisplay(unsigned short colour,unsigned int xleft,unsigned int ytop,unsigned int width,unsigned int height)
 {
     signed int status;
     unsigned int idx;
     //Reset watchdog.
     ResetWDT();
     //Define window as entire display (LT24_setWindow will check if we are initialised).
-    status = LT24_setWindow(0, 0, LT24_WIDTH, LT24_HEIGHT);
+    status = LT24_setWindow(xleft, ytop, width, height);
     if (status != LT24_SUCCESS) return status;
     //Loop through each pixel in the window writing the required colour
-    for(idx=0;idx<(LT24_WIDTH*LT24_HEIGHT);idx++)
+    for(idx=0;idx<(width*height);idx++)
     {
         LT24_write(true, colour);
     }

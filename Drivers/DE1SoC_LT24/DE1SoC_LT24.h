@@ -61,14 +61,14 @@ void LT24_powerConfig( bool isOn );
 
 //Function to clear display to a set colour
 // - Returns 0 if successful
-signed int LT24_clearDisplay(unsigned short colour);
+signed int LT24_clearDisplay(unsigned short colour,unsigned int xleft,unsigned int ytop,unsigned int width,unsigned int height);
 
 //Function to convert Red/Green/Blue to RGB565 encoded colour value 
 unsigned short LT24_makeColour( unsigned int R, unsigned int G, unsigned int B );
 
 //Function to set the drawing window on the display
 //  Returns 0 if successful
-signed int LT24_setWindow( unsigned int xleft, unsigned int ytop, unsigned int width, unsigned int height);
+signed int LT24_setWindow(unsigned int xleft, unsigned int ytop, unsigned int width, unsigned int height);
 
 //Generates test pattern on display
 // - returns 0 if successful
