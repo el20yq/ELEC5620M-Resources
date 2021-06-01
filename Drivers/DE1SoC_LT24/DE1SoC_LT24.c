@@ -1,7 +1,7 @@
 
 #include "DE1SoC_LT24.h"
-#include "../HPS_Watchdog/HPS_Watchdog.h"
-#include "../HPS_usleep/HPS_usleep.h" //some useful delay routines
+#include "HPS_Watchdog/HPS_Watchdog.h"
+#include "HPS_usleep/HPS_usleep.h"//some useful delay routines
 
 //
 // Driver global static variables (visible only to this .c file)
